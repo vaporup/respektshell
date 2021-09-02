@@ -1,11 +1,15 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-while true
-  do
-    for f in respekt*.jpg
-      do
-        jp2a --colors  "$f"
-        echo -ne '\033[55F'
-        sleep 0.001
-    done
+if [[ -d /usr/share/respektsh/images ]]; then
+  IMAGES="/usr/share/respektsh/images"
+else
+  IMAGES="$(dirname ${BASH_SOURCE[0]})/images"
+fi
+
+for f in  ${IMAGES}/respekt*.jpg; do
+  jp2a --colors  "$f"
+  echo -ne '\033[55F'
+  sleep 0.1
 done
+
+clear
