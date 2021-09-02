@@ -1,0 +1,11 @@
+#!/bin/bash
+
+while true
+  do
+    for f in respekt*.jpg
+      do
+        jp2a --colors  "$f"
+        echo -ne '\033[55F'
+        sleep 0.001
+    done
+done
